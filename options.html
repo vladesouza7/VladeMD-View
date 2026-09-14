@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>VladeMD-View - Opcoes</title>
+<link rel="icon" type="image/png" href="icons/16.png">
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+<main>
+  <h1>VladeMD-View</h1>
+  <p class="lede">Leitor de Markdown para GitHub (GFM), Obsidian e Claude Code.</p>
+
+  <h2>Aparencia</h2>
+
+  <div class="row">
+    <div class="grow">
+      <label for="theme">Tema</label>
+      <span class="hint">Padrao do sistema, claro ou escuro. Tambem alternavel pelo botao na barra do leitor.</span>
+    </div>
+    <select id="theme">
+      <option value="system">Sistema</option>
+      <option value="light">Claro</option>
+      <option value="dark">Escuro</option>
+    </select>
+  </div>
+
+  <div class="row">
+    <div class="grow">
+      <label for="width">Largura do texto</label>
+      <span class="hint">Largura maxima da coluna de leitura, em pixels.</span>
+    </div>
+    <input type="number" id="width" min="480" max="1600" step="16">
+  </div>
+
+  <div class="row">
+    <input type="checkbox" id="toc">
+    <div class="grow">
+      <label for="toc">Sumario lateral</label>
+      <span class="hint">Indice automatico dos titulos, com destaque da secao atual.</span>
+    </div>
+  </div>
+
+  <h2>Sintaxe</h2>
+
+  <div class="row">
+    <input type="checkbox" id="math">
+    <div class="grow">
+      <label for="math">Formulas MathJax</label>
+      <span class="hint">Renderiza LaTeX entre <code>$...$</code> e <code>$$...$$</code>.</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="checkbox" id="mermaid">
+    <div class="grow">
+      <label for="mermaid">Diagramas Mermaid</label>
+      <span class="hint">Blocos <code>```mermaid</code> viram fluxogramas, sequencias e arquiteturas.</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="checkbox" id="emoji">
+    <div class="grow">
+      <label for="emoji">Emoji por atalho</label>
+      <span class="hint">Converte <code>:smile:</code> no caractere correspondente.</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="checkbox" id="wikilinks">
+    <div class="grow">
+      <label for="wikilinks">Wikilinks do Obsidian</label>
+      <span class="hint"><code>[[Nota]]</code> vira link para o arquivo vizinho <code>Nota.md</code>.</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <input type="checkbox" id="tags">
+    <div class="grow">
+      <label for="tags">Tags do Obsidian</label>
+      <span class="hint">Destaca <code>#etiqueta</code> no meio do texto. Desligue se voce escreve muito <code>#hex</code> em prosa.</span>
+    </div>
+  </div>
+
+  <h2>Acesso a arquivos locais</h2>
+  <p id="filestatus"></p>
+  <p>Ler <code>.md</code> do disco depende dessa permissao. Instalada sem compactacao,
+     ela costuma ja vir ligada. Se estiver desligada:</p>
+  <div class="steps">
+    <ol>
+      <li>Abra <code>chrome://extensions</code> (ou clique no icone da extensao e escolha <strong>Gerenciar extensao</strong>)</li>
+      <li>Na pagina da VladeMD-View, role ate <strong>Permitir acesso a URLs de arquivo</strong></li>
+      <li>Ligue a chave</li>
+    </ol>
+    <div class="copybar">
+      <input id="extlink" readonly>
+      <button id="copy">Copiar</button>
+    </div>
+  </div>
+
+  <p style="margin-top:2em">
+    <button class="primary" id="save">Salvar</button>
+    <button id="reset">Restaurar padroes</button>
+    <span class="status" id="status">salvo</span>
+  </p>
+
+  <footer>Recarregue as abas de <code>.md</code> ja abertas para aplicar as mudancas.</footer>
+
+  <footer class="wrap footer">
+            <span>VLADETEC © 2026 - <strong>VladeMD-View</strong>. Tecnologia e Inteligência na Disposição que
+                inspira.</span>
+            <span>Feito para quem pensa no amanhã.</span>
+        </footer>
+</main>
+<script src="options.js"></script>
+</body>
+</html>

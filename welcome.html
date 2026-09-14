@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>VladeMD-View instalada</title>
+<link rel="icon" type="image/png" href="icons/16.png">
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+<main>
+  <h1>VladeMD-View instalada</h1>
+  <p class="lede">Falta um passo para ler os <code>.md</code> do seu disco.</p>
+
+  <h2>1. Liberar o acesso a arquivos locais</h2>
+  <p>O Chrome controla o acesso a <code>file://</code> por extensao. Instalada sem compactacao, a permissao costuma ja vir ligada - confira o status abaixo antes de mexer em qualquer coisa.</p>
+  <div class="steps">
+    <ol>
+      <li>Abra <code>chrome://extensions</code> (ou clique no icone da extensao e escolha <strong>Gerenciar extensao</strong>)</li>
+      <li>Na pagina da VladeMD-View, role ate <strong>Permitir acesso a URLs de arquivo</strong></li>
+      <li>Ligue a chave</li>
+    </ol>
+    <div class="copybar">
+      <input id="extlink" readonly>
+      <button id="copy">Copiar</button>
+    </div>
+  </div>
+  <p id="filestatus"></p>
+
+  <h2>2. Abrir um arquivo</h2>
+  <p>Arraste qualquer <code>.md</code> para uma aba do Chrome, ou use <code>Ctrl+O</code>.</p>
+
+  <h2>O que ela entende</h2>
+  <div class="row"><div class="grow"><label>GitHub (GFM)</label><span class="hint">Tabelas, listas de tarefas, notas de rodape, realce de sintaxe, <code>:emoji:</code>.</span></div></div>
+  <div class="row"><div class="grow"><label>Obsidian</label><span class="hint">Frontmatter YAML, callouts <code>&gt; [!NOTE]</code>, wikilinks <code>[[Nota]]</code>, <code>==destaque==</code>, <code>#tags</code>, embeds <code>![[img.png]]</code>.</span></div></div>
+  <div class="row"><div class="grow"><label>Claude Code</label><span class="hint">Blocos de codigo longos, diagramas Mermaid, tabelas densas e HTML inline.</span></div></div>
+  <div class="row"><div class="grow"><label>Cientifico</label><span class="hint">MathJax em <code>$...$</code>, subscrito <code>H~2~O</code>, sobrescrito <code>X^2^</code>.</span></div></div>
+
+  <p style="margin-top:2em"><button class="primary" id="opts">Abrir opcoes</button></p>
+
+  <footer class="wrap footer">
+            <span>VLADETEC © 2026 - <strong>VladeMD-View</strong>. Tecnologia e Inteligência na Disposição que
+                inspira.</span>
+            <span>Feito para quem pensa no amanhã.</span>
+        </footer>
+</main>
+<script src="welcome.js"></script>
+</body>
+</html>

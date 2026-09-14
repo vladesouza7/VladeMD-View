@@ -1,0 +1,76 @@
+{
+  "manifest_version": 3,
+  "name": "VladeMD-View",
+  "version": "1.0.0",
+  "description": "Leitor de Markdown para GitHub (GFM), Obsidian e Claude Code: tabelas, emoji, Mermaid, MathJax, callouts, wikilinks e sumario automatico.",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "file:///*",
+    "*://*/*.md",
+    "*://*/*.markdown",
+    "*://*/*.mdown",
+    "*://*/*.mkd"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "VladeMD-View - opcoes"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "file:///*.md",
+        "file:///*.markdown",
+        "file:///*.mdown",
+        "file:///*.mkd",
+        "file:///*.mkdn",
+        "file:///*.mdwn",
+        "*://*/*.md",
+        "*://*/*.markdown",
+        "*://*/*.mdown",
+        "*://*/*.mkd"
+      ],
+      "js": [
+        "vendor/markdown-it.min.js",
+        "vendor/markdown-it-sub.min.js",
+        "vendor/markdown-it-sup.min.js",
+        "vendor/markdown-it-emoji.min.js",
+        "vendor/markdown-it-footnote.min.js",
+        "vendor/purify.min.js",
+        "vendor/highlight.min.js",
+        "md-plugins.js",
+        "content.js"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/16.png",
+        "icons/48.png",
+        "icons/128.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}
